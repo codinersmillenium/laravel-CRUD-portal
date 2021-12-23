@@ -1,12 +1,14 @@
+<!--CSS-->
+<link rel="stylesheet" type="text/css" href="Assets/style.css">
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        <img class="nav-logo" src="logo.png">
                     </a>
                 </div>
 
@@ -20,6 +22,13 @@
                     <x-jet-nav-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.index')">
                         {{ __('Users') }}
                     </x-jet-nav-link>
+                     <x-jet-nav-link href="{{ route('admin.student.index') }}" :active="request()->routeIs('admin.student.index')">
+                        {{ __('Student') }}
+                    </x-jet-nav-link>
+                     <x-jet-nav-link href="{{ route('admin.teacher.index') }}" :active="request()->routeIs('admin.teacher.index')">
+                        {{ __('Teacher') }}
+                    </x-jet-nav-link>
+                   
                     @endif
 
                     @if (auth()->user()->role_id == 2)
